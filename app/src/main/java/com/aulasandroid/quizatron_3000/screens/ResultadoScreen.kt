@@ -1,17 +1,22 @@
-package com.aulasandroid.quizatron_3000.quiz
+package com.aulasandroid.quizatron_3000.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -28,40 +33,70 @@ import com.aulasandroid.quizatron_3000.R
 fun ResultadoScreen(modifier: Modifier = Modifier) {
     Column(
         modifier = Modifier.fillMaxSize()
-            .background(Color(0xFF30C6FF))
-            .padding(32.dp),
+            .background(Color(0xFFFFFFFF))
+            .padding(top = 32.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Top
     ) {
-
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            Arrangement.spacedBy(20.dp),
-            Alignment.CenterHorizontally
-
-        ) {
             Box(
                 modifier = Modifier.fillMaxWidth()
-                    .height(250.dp),
-                contentAlignment = Alignment.Center
+                    .height(150.dp),
+                contentAlignment = Alignment.TopCenter
             ){
 
                 Image(
                     modifier = Modifier
-                        .height(150.dp)
+                        .height(100.dp)
                         .padding(top = 20.dp),
                     contentDescription = "Quiz Icon",
                     painter = painterResource(id = R.drawable.quiz),
-                    alignment = Alignment.Center
+                    alignment = Alignment.TopCenter
 
                 )
             }
 
+        Column(
+            modifier = Modifier.fillMaxWidth()
+                .height(200.dp)
+                .background(Color(0xFF30C6FF)),
+            Arrangement.spacedBy(20.dp),
+            Alignment.CenterHorizontally
+
+        ) {
+
+                Card(
+                    modifier = Modifier
+                        .width(300.dp)
+                        .height(80.dp)
+                        .padding(top = 20.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color(0xFF5FDA86)
+                    ),
+                    border = BorderStroke(width = 2.dp, color = Color.Black)
+                ) {
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Center
+                    ) {
+
+                    Text(
+                        modifier = Modifier.fillMaxWidth()
+                            .offset(y = 15.dp),
+                        text = "Bom trabalho!",
+                        textAlign = TextAlign.Center,
+                        fontSize = 24.sp
+                    )
+                }
+            }
+
+
             Text(
-                modifier = Modifier,
-                text = "QUIZATRON 3000",
-                fontSize = 32.sp,
-                fontWeight = FontWeight.Medium,
+                modifier = Modifier
+                    .padding(top = 20.dp),
+                text = "Você acertou 1 de 3 perguntas",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Normal,
                 color = Color.Black,
                 textAlign = TextAlign.Center,
             )
@@ -74,7 +109,7 @@ fun ResultadoScreen(modifier: Modifier = Modifier) {
             contentAlignment = Alignment.Center
         ) {
 
-            Button(
+            OutlinedButton (
                 modifier = Modifier
                     .width(300.dp)
                     .height(60.dp),
@@ -82,7 +117,7 @@ fun ResultadoScreen(modifier: Modifier = Modifier) {
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow),
             ) {
                 Text(
-                    text = "COMEÇAR",
+                    text = "JOGAR NOVAMENTE",
                     color = Color.Black,
                     fontSize = 24.sp
                 )
@@ -90,6 +125,5 @@ fun ResultadoScreen(modifier: Modifier = Modifier) {
 
             }
         }
-
     }
 }

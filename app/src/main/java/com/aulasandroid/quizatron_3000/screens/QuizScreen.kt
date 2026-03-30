@@ -1,11 +1,5 @@
-package com.aulasandroid.quizatron_3000.quiz
+package com.aulasandroid.quizatron_3000.screens
 
-import android.R.attr.contentDescription
-import android.R.attr.fontWeight
-import android.R.attr.onClick
-import android.R.attr.text
-import android.R.attr.top
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,10 +9,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -29,10 +22,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.aulasandroid.quizatron_3000.R
 
 @Composable
-fun QuizScreen(modifier: Modifier = Modifier) {
+fun QuizScreen(navController: NavController) {
         Column(
             modifier = Modifier.fillMaxSize()
                 .background(Color(0xFF30C6FF))
@@ -81,11 +75,11 @@ fun QuizScreen(modifier: Modifier = Modifier) {
                 contentAlignment = Alignment.Center
             ) {
 
-                Button(
+                OutlinedButton(
                     modifier = Modifier
                         .width(300.dp)
                         .height(60.dp),
-                    onClick = {},
+                    onClick = {navController.navigate(route = "perguntas")},
                     colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow),
                 ) {
                     Text(
@@ -94,12 +88,10 @@ fun QuizScreen(modifier: Modifier = Modifier) {
                         fontSize = 24.sp
                     )
 
-
                 }
             }
-
-            }
         }
+}
 
 
 
